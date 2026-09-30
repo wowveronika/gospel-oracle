@@ -1,0 +1,1 @@
+from .gospel import Gospel

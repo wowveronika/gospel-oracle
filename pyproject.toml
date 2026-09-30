@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gospel-oracle"
+version = "0.1.0"
+description = "Находит семь смертных грехов на веб-странице и отвечает стихом из Евангелия."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["requests", "beautifulsoup4"]
+
+[project.scripts]
+gospel = "gospel_oracle.gospel:main"
+
+[tool.setuptools]
+packages = ["gospel_oracle"]
+
+[tool.setuptools.package-data]
+gospel_oracle = ["data/*"]
