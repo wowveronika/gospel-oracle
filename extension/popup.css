@@ -1,0 +1,199 @@
+/* Белый фон, только Arial Narrow, много воздуха. Элементы разбросаны, а не выстроены в столбик. */
+
+:root {
+  --black: #111;
+  --muted: #8a8a8a;
+  --light: #e4e4e4;
+  --blue: #1d2bd8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 360px;
+  height: 580px;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+  color: var(--black);
+  font: 13px/1.4 "Arial Narrow", Arial, sans-serif;
+  font-stretch: condensed;
+}
+
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Весь экран; при глитче его копии ложатся стопкой */
+#screen,
+.echo {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.echo {
+  pointer-events: none;
+  transform-origin: top;
+}
+
+/* ---------- Заголовок: маленький, в углу ---------- */
+
+header {
+  position: absolute;
+  top: 34px;
+  left: 92px;
+}
+
+/* ---------- Крест из полос прокрутки: левый верхний угол ---------- */
+
+.cross {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  width: 56px;
+}
+
+.cross .bar {
+  stroke: #9a9a9a;
+  stroke-width: 0.5;
+}
+
+.cross .thumb {
+  stroke: #1f4fa8;
+  stroke-width: 0.5;
+}
+
+.cross .arrow {
+  fill: #555;
+}
+
+.cross .grip {
+  stroke: #888;
+  stroke-width: 0.5;
+}
+
+h1 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+#site {
+  max-width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Шкала: мелко, в середине ---------- */
+
+.scale {
+  position: absolute;
+  top: 168px;
+  left: 50%;
+  width: 140px;
+  transform: translateX(-50%);
+  font-size: 11px;
+}
+
+.total {
+  margin-bottom: 12px;
+}
+
+#total {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.row {
+  margin-bottom: 7px;
+}
+
+.row-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track {
+  height: 1px;
+  margin-top: 2px;
+  background: var(--light);
+}
+
+.fill {
+  height: 100%;
+  background: var(--black);
+}
+
+/* ---------- Стих: снизу справа от шкалы, выплывает наискосок ---------- */
+
+.verse {
+  position: absolute;
+  z-index: 1; /* поверх окон */
+  top: 345px; /* точное место задаёт popup.js: сразу под шкалой */
+  left: 150px;
+  width: 180px;
+  padding: 4px;
+  background: #fff;
+}
+
+.verse.enter {
+  animation: enter 0.6s ease-out;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translate(40px, 50px);
+  }
+}
+
+#verse {
+  margin-bottom: 6px;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+#ref {
+  margin-bottom: 14px;
+  font-size: 11px;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 1px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ---------- Картинка: стопка окон в левом нижнем углу ---------- */
+
+.windows {
+  position: absolute;
+  bottom: -20px;
+  left: 24px;
+  width: 170px;
+  overflow: visible;
+}
+
+.filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+}

@@ -11,8 +11,7 @@ from .gospel import DATA, load_table
 
 
 def only_words(text):
-    """Оставляет только слова: без регистра, букв ё, ударений и знаков препинания."""
-    text = text.lower().replace("ё", "е").replace("́", "")  # ́ — знак ударения
+    text = text.lower().replace("ё", "е").replace("́", "")  
     return " ".join(re.findall(r"\w+", text))
 
 
